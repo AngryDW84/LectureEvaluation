@@ -53,18 +53,18 @@
 		</div>
 	</nav>
 	<section class="container" style="max-width: 560px;">
-    <form class="" action="./userRegisterAciton.jsp" method="post">
+    <form class="" action="./userRegisterAction.jsp" method="post">
       <div class="form-group">
         <label for="">아이디</label>
-        <input class="form-control" type="text" name="userID" value="">
+        <input class="form-control" type="text" name="userID"  >
       </div>
       <div class="form-group">
         <label for="">비밀번호</label>
-        <input class="form-control" type="password" name="userPassword" value="">
+        <input class="form-control" type="password" name="userPassword" >
       </div>
 			<div class="form-group">
 				<label for="">이메일</label>
-				<input class="form-control" type="password" name="userEmail" value="">
+				<input class="form-control" type="text" name="userEmail" >
 			</div>
       <button class="btn btn-primary" type="submit" name="button">회원가입</button>
     </form>

@@ -52,7 +52,9 @@ public class UserDAO {
 		
 		try {
 			conn = DatabaseUtil.getConnection() ; 
+			System.out.println("log++++++++++++++1");
 			pstmt = conn.prepareStatement(SQL) ; 
+			System.out.println("log++++++++++++++2");
 			pstmt.setString(1, user.getUserID());
 			pstmt.setString(2, user.getUserPassword());
 			pstmt.setString(3, user.getUserEmail());
