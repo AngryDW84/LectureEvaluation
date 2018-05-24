@@ -32,14 +32,14 @@
 
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-time active"><a class="nav-link"
+				<li class="nav-time"><a class="nav-link"
 					href="index.jsp">메인</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown"
 					id="dropdown"> 회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="userLogin.jsp">로그인</a> <a
-							class="dropdown-item" href="userJoin.jsp">회원가입</a> <a
+							class="dropdown-item active" href="userJoin.jsp">회원가입</a> <a
 							class="dropdown-item" href="userLogout.jps">로그아웃</a>
 					</div>
 				</li>

@@ -23,7 +23,7 @@
 	<script src="./js/bootstrap.min.js"></script>
 
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">강의평가 웹사이트</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbar">
@@ -32,17 +32,15 @@
 
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-time active"><a class="nav-link"
-					href="index.jsp">메인</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-toggle="dropdown"
-					id="dropdown"> 회원관리</a>
+				<li class="nav-itme">
+					<a class="nav-link"	href="index.jsp">메인</a></li>
+				<li class="nav-item dropdown">
+					<a	class="nav-link dropdown-toggle" data-toggle="dropdown"	id="dropdown"> 회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 						<a class="dropdown-item" href="userLogin.jsp">로그인</a> <a
-							class="dropdown-item" href="userJoin.jsp">회원가입</a> <a
+							class="dropdown-item active" href="userJoin.jsp">회원가입</a> <a
 							class="dropdown-item" href="userLogout.jps">로그아웃</a>
-					</div>
-				</li>
+					</div></li>
 			</ul>
 
 			<form class="form-inline my-2 my-lg-0">
@@ -52,28 +50,28 @@
 			</form>
 		</div>
 	</nav>
+
 	<section class="container" style="max-width: 560px;">
-    <form class="" action="./userRegisterAction.jsp" method="post">
-      <div class="form-group">
-        <label for="">아이디</label>
-        <input class="form-control" type="text" name="userID"  >
-      </div>
-      <div class="form-group">
-        <label for="">비밀번호</label>
-        <input class="form-control" type="password" name="userPassword" >
-      </div>
+		<form class="" action="./userRegisterAction.jsp" method="post">
 			<div class="form-group">
-				<label for="">이메일</label>
-				<input class="form-control" type="text" name="userEmail" >
+				<label for="">아이디</label> <input class="form-control" type="text"
+					name="userID">
 			</div>
-      <button class="btn btn-primary" type="submit" name="button">회원가입</button>
-    </form>
+			<div class="form-group">
+				<label for="">비밀번호</label> <input class="form-control"
+					type="password" name="userPassword">
+			</div>
+			<div class="form-group">
+				<label for="">이메일</label> <input class="form-control" type="text"
+					name="userEmail">
+			</div>
+			<button class="btn btn-primary" type="submit" name="button">회원가입</button>
+		</form>
 	</section>
 
 
-  <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-    Copyright &copy; 2018 김동원 All Right Reserved.
-  </footer>
+	<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
+		Copyright &copy; 2018 김동원 All Right Reserved. </footer>
 
 </body>
 </html>
