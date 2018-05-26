@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.io.PrintWriter"%>
+<%@ page import="user.UserDAO"%>
 <!DOCTYPE html>
 <!-- PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" -->
 <html>
@@ -21,6 +23,22 @@
 	<script src="./js/popper.js"></script>
 	<!-- 부트스트랩 자바스크립트 추가하기 -->
 	<script src="./js/bootstrap.min.js"></script>
+<%
+		String userID = null ; 
+		if(session.getAttribute("userID") != null ){
+			userID = (String) session.getAttribute("userID") ;
+		}
+		if(userID != null ){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인이 된 상태입니다.') ; ");
+			script.println("location.href = 'index.jsp';");
+			script.println("</script>");
+			script.close();
+			return;
+		}
+
+	%>
 
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -32,15 +50,27 @@
 
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-itme">
-					<a class="nav-link"	href="index.jsp">메인</a></li>
-				<li class="nav-item dropdown">
-					<a	class="nav-link dropdown-toggle" data-toggle="dropdown"	id="dropdown"> 회원관리</a>
+				<li class="nav-time active"><a class="nav-link"
+					href="index.jsp">메인</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown"
+					id="dropdown"> 회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a> <a
-							class="dropdown-item active" href="userJoin.jsp">회원가입</a> <a
-							class="dropdown-item" href="userLogout.jps">로그아웃</a>
-					</div></li>
+					
+<%
+	if(userID == null ) {
+%>		
+						<a class="dropdown-item" href="userLogin.jsp">로그인</a> 
+						<a class="dropdown-item" href="userJoin.jsp">회원가입</a> 
+<%
+	} else  {
+%>
+						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
+<%
+	}
+%>
+					</div>
+				</li>
 			</ul>
 
 			<form class="form-inline my-2 my-lg-0">

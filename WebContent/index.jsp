@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter"%>
+<%@ page import="user.UserDAO"%>
 <!DOCTYPE html>
 <!-- PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd" -->
 <html>
@@ -21,6 +23,31 @@
 	<script src="./js/popper.js"></script>
 	<!-- 부트스트랩 자바스크립트 추가하기 -->
 	<script src="./js/bootstrap.min.js"></script>
+	
+	<%
+		String userID = null ; 
+		if(session.getAttribute("userID") != null ){
+			userID = (String) session.getAttribute("userID") ;
+		}
+		if(userID != null ){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('로그인을 해주세요') ; ");
+			script.println("location.href = 'userLogin.jsp';");
+			script.println("</script>");
+			script.close();
+			return;
+		}
+		boolean emailChecked = new UserDAO().getUserEmailChecked(userID) ; 
+		if(emailChecked == false ){
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("location.href = 'emailSendConfirm.jsp';");
+			script.println("</script>");
+			script.close();
+			return;
+		}
+	%>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">강의평가 웹사이트</a>
@@ -37,9 +64,19 @@
 					class="nav-link dropdown-toggle" data-toggle="dropdown"
 					id="dropdown"> 회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a> <a
-							class="dropdown-item" href="userJoin.jsp">회원가입</a> <a
-							class="dropdown-item" href="userLogout.jps">로그아웃</a>
+					
+<%
+	if(userID == null ) {
+%>		
+						<a class="dropdown-item" href="userLogin.jsp">로그인</a> 
+						<a class="dropdown-item" href="userJoin.jsp">회원가입</a> 
+<%
+	} else  {
+%>
+						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
+<%
+	}
+%>
 					</div>
 				</li>
 			</ul>
@@ -114,6 +151,37 @@
 					gooooooooooooooooooood정말 좋은 강의예요.&nbsp;<small>2015년 가을학기</small>
 				</h5>
 				<p class="card-text">이래저래 좋았습니다만 안좋은것도 있었어요.</p>
+				<div class="row">
+					<div class="col-9 text-left">
+						성적<span style="color: red;">A</span> 널널<span style="color: red;">A</span>
+						강의<span style="color: red;">C</span> 종합<span style="color: red;">B</span>
+						<span style="color: green;">(추천: 20)</span>
+					</div>
+					<div class="col-3 text-right">
+						<a onclick="return confirm('추천하시겠습니까?')"
+							href="./likeAction.jsp?evalutionID=">추천</a> <a
+							onclick="return confirm('삭재하시겠습니까?')"
+							href="./deleteAction.jsp?evalutionID=">삭제</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card gb-light mt-3">
+			<div class="card-header bg-light">
+				<div class="row">
+					<div class="col-8 text-left">
+						수학개론&nbsp;<small>김동원</small>
+					</div>
+					<div class="col-4 text-right">
+						종합<span style="color: red;">A</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					재밌지만 어렵네요.&nbsp;<small>2013년 가을학기</small>
+				</h5>
+				<p class="card-text">어려웠지만 좋았습니다.</p>
 				<div class="row">
 					<div class="col-9 text-left">
 						성적<span style="color: red;">A</span> 널널<span style="color: red;">A</span>
