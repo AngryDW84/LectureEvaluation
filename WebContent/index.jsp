@@ -227,7 +227,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="./evluationRegisterAction.jsp" method="post">
+					<form action="./evaluationRegisterAction.jsp" method="post">
 						<div class="form-row">
 							<div class="form-group col-sm-6">
 								<label>강의명</label> <input type="text" name="lectureName"
@@ -274,11 +274,11 @@
 						</div>
 						<div class="form-group">
 							<label for="">제목</label> <input class="form-control" type="text"
-								name="evalutionTime" value="" maxlength="30">
+								name="evaluationTitle" value="" maxlength="30">
 						</div>
 						<div class="form-group">
 							<label for="">내용</label>
-							<textarea class="form-control" name="evalutionContent"
+							<textarea class="form-control" name="evaluationContent"
 								maxlength="2048" style="height: 180px;">
                 </textarea>
 						</div>
@@ -296,7 +296,7 @@
 							</div>
 							<div class="form-group col-sm-3">
 								<label for="">널널</label> <select class="form-control"
-									name="comfotScore">
+									name="comfortableScore">
 									<option value="A" selected>A</option>
 									<option value="B">B</option>
 									<option value="C">C</option>
