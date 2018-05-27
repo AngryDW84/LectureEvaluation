@@ -25,29 +25,42 @@
 	<script src="./js/bootstrap.min.js"></script>
 	
 	<%
-		String userID = null ; 
-		if(session.getAttribute("userID") != null ){
-			userID = (String) session.getAttribute("userID") ;
-		}
-		if(userID != null ){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('로그인을 해주세요') ; ");
-			script.println("location.href = 'userLogin.jsp';");
-			script.println("</script>");
-			script.close();
-			return;
-		}
-		boolean emailChecked = new UserDAO().getUserEmailChecked(userID) ; 
-		if(emailChecked == false ){
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("location.href = 'emailSendConfirm.jsp';");
-			script.println("</script>");
-			script.close();
-			return;
-		}
-	%>
+			System.out.println("LOG++++++++++++++1");
+			String userID = null;
+			if (session.getAttribute("userID") != null) {
+				userID = (String) session.getAttribute("userID");
+			}
+			System.out.println("userID :" + userID);
+			System.out.println("LOG++++++++++++++2");
+			if (userID == null) {
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("alert('로그인을 해주세요') ; ");
+				script.println("location.href = 'userLogin.jsp';");
+				script.println("</script>");
+				script.close();
+				return;
+			} else {
+				System.out.println("userID :" + userID);
+				System.out.println("LOG++++++++++++++4");
+			}
+			
+			boolean emailChecked = new UserDAO().getUserEmailChecked(userID);
+			System.out.println("userID :" + userID);
+			System.out.println("emailChecked :" + emailChecked);
+			System.out.println("LOG++++++++++++++7");		
+			if (emailChecked == false) {
+				
+				PrintWriter script = response.getWriter();
+				script.println("<script>");
+				script.println("location.href = 'emailSendConfirm.jsp';");
+				script.println("</script>");
+			System.out.println("LOG++++++++++++++8");
+				script.close();
+				return;
+			}
+			
+		%>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">강의평가 웹사이트</a>
@@ -73,7 +86,7 @@
 <%
 	} else  {
 %>
-						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 <%
 	}
 %>
@@ -362,7 +375,7 @@
 			</div>
 		</div>
 	</div>
-	<%-- 등록하기 끝--%>
+	<%-- 신고하기 끝--%>
 	<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
 		Copyright &copy; 2018 김동원 All Right Reserved. </footer>
 

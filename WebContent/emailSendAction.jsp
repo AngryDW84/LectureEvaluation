@@ -27,7 +27,7 @@
 	if (userID == null) {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
-		script.println("alert('로그인을 해주세요.') ; ");
+		script.println("alert('로그인을 해주세요.[SendAction]') ; ");
 		script.println("'location.href=userLogin.jsp'");
 		script.println("</script>");
 		script.close();
@@ -48,9 +48,9 @@
 	String host = "http://localhost:8080/JspEvaluation/" ;
 	String from = "06sinji@gmail.com" ;
 	String to = userDAO.getUserEmail(userID) ;
-	String subject = "강의평가를 위한 이메일 인증입니다." ;
-	String content = "다음 링크에 접속하여 이메일 인증을 진행하세요." +
-	"<a href = '" + host + "emailCheckAction.jsp?code=" + new SHA256().getSHA256(to) + "'>이메일 인증하기</a>" ;
+	String subject = "강의평가를 위한 이메일 인증입니다. [" + userID + "]" ;
+	String content = "다음 링크에 접속하여 이메일 인증을 진행하세요. 사용자ID " + userID + 
+	"<p><a href = '" + host + "emailCheckAction.jsp?code=" + new SHA256().getSHA256(to) + "'>이메일 인증하기</a></p>" ;
 
 		Properties p = new Properties() ;
 		p.put("mail.smtp.user",from) ;
@@ -156,7 +156,7 @@
 <%
 	} else  {
 %>
-						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 <%
 	}
 %>

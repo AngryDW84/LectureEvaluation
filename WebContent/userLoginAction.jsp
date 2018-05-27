@@ -11,8 +11,10 @@
 	String userID = null;
 	String userPassword = null;
 	
+	
 	if (request.getParameter("userID") != null) {
 		userID = request.getParameter("userID");
+	System.out.println("++++++++++++++++++++") ; 
 	}
 	if (request.getParameter("userPassword") != null) {
 		userPassword = request.getParameter("userPassword");
@@ -27,6 +29,7 @@
 		script.close();
 		return;
 	}
+
 
 	UserDAO userDAO = new UserDAO();
 

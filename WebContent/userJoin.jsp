@@ -65,7 +65,7 @@
 <%
 	} else  {
 %>
-						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 <%
 	}
 %>

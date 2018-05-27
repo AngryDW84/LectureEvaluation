@@ -27,12 +27,13 @@
 		String userID = null ; 
 		if(session.getAttribute("userID") != null ){
 			userID = (String) session.getAttribute("userID") ;
+			System.out.println("userID + " +userID) ; 
 		}
 		if(userID == null ){
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('로그인을 해주세요') ; ");
-			script.println("location.href = 'userLoing.jsp';");
+			script.println("location.href = 'userLogin.jsp';");
 			script.println("</script>");
 			script.close();
 			return;
@@ -57,18 +58,11 @@
 					id="dropdown"> 회원관리</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
 					
-<%
-	if(userID == null ) {
-%>		
+
 						<a class="dropdown-item" href="userLogin.jsp">로그인</a> 
 						<a class="dropdown-item" href="userJoin.jsp">회원가입</a> 
-<%
-	} else  {
-%>
-						<a class="dropdown-item" href="userLogout.jps">로그아웃</a>
-<%
-	}
-%>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+
 					</div>
 				</li>
 			</ul>
