@@ -14,7 +14,7 @@
 	
 	if (request.getParameter("userID") != null) {
 		userID = request.getParameter("userID");
-	System.out.println("++++++++++++++++++++") ; 
+	 
 	}
 	if (request.getParameter("userPassword") != null) {
 		userPassword = request.getParameter("userPassword");

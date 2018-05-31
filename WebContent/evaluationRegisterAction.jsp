@@ -118,6 +118,7 @@
 	} else {
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
+		script.println("confirm('등록하시겠습니까?') ; ");
 		script.println("location.href = 'index.jsp'");
 		script.println("</script>");
 		script.close();

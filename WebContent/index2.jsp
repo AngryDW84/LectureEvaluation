@@ -137,8 +137,8 @@
 				<option value="기타" <% if(lectureDivide.equals("기타")) out.println("selected") ;%>>기타</option>
 			</select>
 			<select class="form-control mx-1 mt-2" name="searchType">
-				<option value="최신순">최신순</option>
-				<option value="추천순" <% if(searchType.equals("추천순")) out.println("selected") ;%>>추천순 </option>
+				<option value="최신순">전체</option>
+				<option value="추천순" <% if(searchType.equals("추천순")) out.println("selected") ;%>>전공 </option>
 			</select> 
 			<input class="form-control mx-1 mt-2" type="text" name="search"
 				placeholder="내용을 입력하세요">
@@ -166,17 +166,16 @@
 			</div>
 			<div class="card-body">
 				<h5 class="card-title">
-					<%= evaluation.getEvaluationTitle() %>&nbsp;
-					<small><%= evaluation.getLectureYear() %>년 <%= evaluation.getSemesterDivide() %></small>
+					<%= evaluation.getEvaluationTitle() %>.&nbsp;<small><%= evaluaiton.getLectreYear() %>년 <%= evaluation.getLectureSemesterDivide() %></small>
 				</h5>
-				<p class="card-text"><%= evaluation.getEvaluationContent() %></p>
+				<p class="card-text"><%= evaluaiton.getEvaluationContent() %></p>
 				<div class="row">
 					<div class="col-9 text-left">
-						성적<span style="color: red;"><%= evaluation.getCreditScore() %></span>
-						널널<span style="color: red;"><%= evaluation.getComfortableScore() %></span>
-						강의<span style="color: red;"><%= evaluation.getLectureScore() %></span>
-						종합<span style="color: red;"><%= evaluation.getTotalScore() %></span>
-						<span style="color: green;">(추천: <%= evaluation.getLikeCount() %>)</span>
+						성적<span style="color: red;"><%= evaluaiton.getCreditScore() %></span>
+						널널<span style="color: red;"><%= evaluaiton.getComfortableScore() %></span>
+						강의<span style="color: red;"><%= evaluaiton.getLectureScore() %></span>
+						종합<span style="color: red;"><%= evaluaiton.getTotalScore() %></span>
+						<span style="color: green;">(추천: <%= evaluaiton.getLikeCount() %>)</span>
 					</div>
 					<div class="col-3 text-right">
 						<a onclick="return confirm('추천하시겠습니까?')"	 href="./likeAction.jsp?evalutionID=">추천</a> 
@@ -189,9 +188,73 @@
 	}
 %>
 		
+<%--	
+		<div class="card gb-light mt-3">
+			<div class="card-header bg-light">
+				<div class="row">
+					<div class="col-8 text-left">
+						미술학개론&nbsp;<small>홍보람</small>
+					</div>
+					<div class="col-4 text-right">
+						종합<span style="color: red;">A</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					gooooooooooooooooooood정말 좋은 강의예요.&nbsp;<small>2015년 가을학기</small>
+				</h5>
+				<p class="card-text">이래저래 좋았습니다만 안좋은것도 있었어요.</p>
+				<div class="row">
+					<div class="col-9 text-left">
+						성적<span style="color: red;">A</span> 널널<span style="color: red;">A</span>
+						강의<span style="color: red;">C</span> 종합<span style="color: red;">B</span>
+						<span style="color: green;">(추천: 20)</span>
+					</div>
+					<div class="col-3 text-right">
+						<a onclick="return confirm('추천하시겠습니까?')"
+							href="./likeAction.jsp?evalutionID=">추천</a> <a
+							onclick="return confirm('삭재하시겠습니까?')"
+							href="./deleteAction.jsp?evalutionID=">삭제</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card gb-light mt-3">
+			<div class="card-header bg-light">
+				<div class="row">
+					<div class="col-8 text-left">
+						수학개론&nbsp;<small>김동원</small>
+					</div>
+					<div class="col-4 text-right">
+						종합<span style="color: red;">A</span>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">
+					재밌지만 어렵네요.&nbsp;<small>2013년 가을학기</small>
+				</h5>
+				<p class="card-text">어려웠지만 좋았습니다.</p>
+				<div class="row">
+					<div class="col-9 text-left">
+						성적<span style="color: red;">A</span> 널널<span style="color: red;">A</span>
+						강의<span style="color: red;">C</span> 종합<span style="color: red;">B</span>
+						<span style="color: green;">(추천: 20)</span>
+					</div>
+					<div class="col-3 text-right">
+						<a onclick="return confirm('추천하시겠습니까?')"
+							href="./likeAction.jsp?evalutionID=">추천</a> <a
+							onclick="return confirm('삭재하시겠습니까?')"
+							href="./deleteAction.jsp?evalutionID=">삭제</a>
+					</div>
+				</div>
+			</div>
+		</div>
+ --%>
 	</section>
 	
-	<ul	class="pagination justify-content-center mt-3">
+	<ul	class="pagination" justify-content-center mt-3">
 		<li class ="page-item">
 		
 <%
@@ -223,7 +286,6 @@ if(evaluationList.size() < 6 ) {
 <%
 } else {
 %>
-
 	<a class="page-link"
 	href="./index.jsp?lectureDivide=<%= URLEncoder.encode(lectureDivide, "UTF-8") %>
 	&searchType=<%= URLEncoder.encode(searchType, "UTF-8") %>
@@ -232,10 +294,9 @@ if(evaluationList.size() < 6 ) {
 	다음
 	</a>
 	
-<%
+	<%
 		}
-	}
-%>
+	%>
 		</li>
 		
 	</ul>
