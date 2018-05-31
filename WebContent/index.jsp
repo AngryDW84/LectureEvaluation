@@ -161,7 +161,7 @@
 			<div class="card-header bg-light">
 				<div class="row">
 					<div class="col-8 text-left"><%= evaluation.getLectureName() %>&nbsp; <small><%= evaluation.getProfessorName() %></small></div>
-					<div class="col-4 text-right"><%= evaluation.getTotalScore() %><span style="color: red;">A</span></div>
+					<div class="col-4 text-right">종합&nbsp;<span style="color: red;"><%= evaluation.getTotalScore() %></span></div>
 				</div>
 			</div>
 			<div class="card-body">
@@ -175,12 +175,12 @@
 						성적<span style="color: red;"><%= evaluation.getCreditScore() %></span>
 						널널<span style="color: red;"><%= evaluation.getComfortableScore() %></span>
 						강의<span style="color: red;"><%= evaluation.getLectureScore() %></span>
-						종합<span style="color: red;"><%= evaluation.getTotalScore() %></span>
+						
 						<span style="color: green;">(추천: <%= evaluation.getLikeCount() %>)</span>
 					</div>
 					<div class="col-3 text-right">
-						<a onclick="return confirm('추천하시겠습니까?')"	 href="./likeAction.jsp?evalutionID=">추천</a> 
-						<a onclick="return confirm('삭제하시겠습니까?')" href="./deleteAction.jsp?evalutionID=">삭제</a>
+						<a onclick="return confirm('추천하시겠습니까?')"	 href="./likeAction.jsp?evaluationID=<%= evaluation.getEvaluationID() %>">추천</a> 
+						<a onclick="return confirm('삭제하시겠습니까?')" href="./deleteAction.jsp?evaluationID=<%= evaluation.getEvaluationID() %>">삭제</a>
 					</div>
 				</div>
 			</div>

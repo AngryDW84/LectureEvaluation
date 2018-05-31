@@ -192,12 +192,8 @@
 		<div class="card gb-light mt-3">
 			<div class="card-header bg-light">
 				<div class="row">
-					<div class="col-8 text-left">
-						미술학개론&nbsp;<small>홍보람</small>
-					</div>
-					<div class="col-4 text-right">
-						종합<span style="color: red;">A</span>
-					</div>
+					<div class="col-8 text-left">미술학개론&nbsp;<small>홍보람</small>	</div>
+					<div class="col-4 text-right">종합<span style="color: red;">A</span>	</div>
 				</div>
 			</div>
 			<div class="card-body">
